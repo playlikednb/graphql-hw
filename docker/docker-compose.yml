@@ -1,0 +1,41 @@
+version: "3"
+services:
+  otus-crm:
+    container_name: otus-crm
+    image: node:12
+    working_dir: /usr/src/app
+    volumes:
+      - "../:/usr/src/app"
+    command: "bash ./scripts/run.sh"
+    ports:
+      - "7001:3000"
+    environment:
+      NODE_ENV: dev
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20k"
+        max-file: "10"
+    networks:
+      otus-net:
+  otus-postgres-db:
+    container_name: otus-postgres-db
+    image: postgres:12
+    ports:
+      - "7002:5432"
+    environment:
+      POSTGRES_USER: otus
+      POSTGRES_PASSWORD: otus
+      POSTGRES_DB: crm
+    volumes:
+      - ../tmp/otus-postgres-db:/var/lib/postgresql/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20k"
+        max-file: "10"
+    networks:
+      otus-net:
+
+networks:
+  otus-net:

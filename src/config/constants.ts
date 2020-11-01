@@ -1,0 +1,11 @@
+export const DATABASE_PROVIDER = 'SEQUELIZE'
+
+export const USER_PROVIDER = 'USER_REPOSITORY'
+
+export const DEFAULT_VALUES = {
+  DB_DEFAULT_LIMIT: 20,
+  DB_MAX_LIMIT: 50,
+  DB_OFFSET: 0,
+}
+
+export const JWT_SECRET_KEY = '5d7b1894-44a4-4896-bf0c-ca6de634ac7c'

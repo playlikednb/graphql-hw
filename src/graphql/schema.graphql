@@ -1,0 +1,37 @@
+type Query {
+  allUsers(where: UserWhereInput): UserConnection!
+  users: [User!]!
+  user(id: Int!): User!
+  healthCheck: String!
+}
+
+type Mutation {
+  createUser(data: CreateUserInput!): User!
+}
+
+type Subscription {
+  userCreated: User
+}
+
+type User {
+  id: Int!
+  username: String!
+}
+
+input CreateUserInput {
+  username: String!
+  password: String!
+}
+
+input UserWhereInput {
+  username: String
+}
+
+interface DefaultConnection {
+  count: Int!
+}
+
+type UserConnection implements DefaultConnection {
+  count: Int!
+  rows: [User!]!
+}

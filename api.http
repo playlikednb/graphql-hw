@@ -1,0 +1,51 @@
+# Basic auth
+GET http://localhost:7000/test
+content-type: application/json
+Authorization: Basic nest:nest
+###
+
+# Health check
+GET http://localhost:7000/health
+content-type: application/json
+###
+
+# Users
+GET http://localhost:7000/users?state=ACTIVE
+content-type: application/json
+
+###
+
+# User
+GET http://localhost:7000/users/1030
+content-type: application/json
+
+###
+
+# Delete user
+DELETE http://localhost:7000/users/54
+content-type: application/json
+
+###
+
+# Create
+POST http://localhost:7000/users
+content-type: application/json
+
+{ "firstName": "ds" }
+
+###
+
+# Login
+POST http://localhost:7000/auth/login
+content-type: application/json
+
+{ "username": "Kacey86", "password": "123456" }
+
+
+###
+
+# Register
+POST http://localhost:7000/auth/register
+content-type: application/json
+
+{ "username": "Kacey86", "password": "123456" }
